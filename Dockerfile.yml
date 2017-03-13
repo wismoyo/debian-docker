@@ -18,8 +18,9 @@ FROM debian:jessie
   ## Install nginx-extras from dotdeb
   && apt-get install -y nginx-extras -y \
   ## Install Git
-  && apt-get install -y git \
+  && apt-get install -y git rsync
   ## Remove default nginx confs
-  && rm -rf /etc/nginx && git clone https://github.com/sepulsa/nginx_conf.git /etc/ \
-  && mkdir -p /sepulsa/www/gaia
+  #&& rm -rf /etc/nginx && git clone https://github.com/sepulsa/nginx_conf.git /etc/ \
+  #&& mkdir -p /sepulsa/www/gaia
   #&& sudo service nginx restart
+  COPY nginx/ /etc/nginx/
